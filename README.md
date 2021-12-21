@@ -1,1 +1,1 @@
-# 8th-light-movie-cli
+# 8th-light-book-cli
