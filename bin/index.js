@@ -1,7 +1,10 @@
 #!/usr/bin/env node
+const { welcomeMessage } = require("../utils/printMessages");
+const { menuPrompt } = require("../prompts/menuPrompt");
 
-const chalk = require("chalk");
-const boxen = require("boxen");
-const yargs = require("yargs");
+function main() {
+  welcomeMessage();
+  menuPrompt();
+}
 
-
+main();
