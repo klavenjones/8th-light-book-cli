@@ -1,18 +1,18 @@
 {
-  "name": "8th-light-movie-cli",
+  "name": "8th-light-books-cli",
   "version": "1.0.0",
   "description": "A Movie Database leveraging Google API",
   "main": "index.js",
-  "repository": "https://github.com/klavenjones/8th-light-movie-cli.git",
+  "repository": "https://github.com/klavenjones/8th-light-book-cli.git",
   "author": "Klaven Jones (https://klavenjones.com)",
   "license": "MIT",
   "scripts": {
     "start": "node index.js",
     "execute": "node bin/index.js",
-    "test": "jest" 
+    "test": "jest"
   },
   "bin": {
-    "movies": "./bin/index.js"
+    "books": "./bin/index.js"
   },
   "dependencies": {
     "axios": "^0.24.0",
