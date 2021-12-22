@@ -7,24 +7,16 @@ async function searchBooks(query) {
   try {
     if (!query || query === undefined) {
       throw new Error(
-        chalk.red.bold(
-          "Your search query is invalid, please make sure you type in a valid query"
-        )
+        "Your search query is invalid, please make sure you type in a valid query"
       );
     }
     const response = await axios.get(
-      "https://www.googleapis.com/books/v1/volumes",
-      {
-        params: {
-          q: query,
-          key: process.env.GOOGLE_API_KEY,
-          maxResults: 5,
-          orderBy: "relevance"
-        }
-      }
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5&printType=books&startIndex=0&projection=lite`
     );
+
     const books = response.data.items;
     printResponse(query, books);
+    return response;
   } catch (error) {
     if (error.message === "Request failed with status code 503") {
       throw new Error(
@@ -34,6 +26,7 @@ async function searchBooks(query) {
       );
     }
     console.error(error.message);
+    return error;
   }
 }
 
