@@ -3,6 +3,7 @@ const { enterSearchPrompt } = require("./enterSearchPrompt");
 const { getList } = require("./getList");
 const { saveBookPrompt } = require("./saveBookPrompt");
 const { farewellMessage } = require("../utils/printMessages");
+const { clearConsole } = require("../utils/clearConsole");
 
 const questions = [
   {
@@ -24,12 +25,15 @@ function menuPrompt() {
   inquirer.prompt(questions).then((answer) => {
     const { Welcome } = answer;
     if (Welcome === "Search Books") {
+      clearConsole();
       enterSearchPrompt(menuPrompt);
     } else if (Welcome === "List Books") {
       getList(menuPrompt);
     } else if (Welcome === "Save Books") {
+      clearConsole();
       saveBookPrompt(menuPrompt);
     } else {
+      clearConsole();
       farewellMessage();
       return;
     }

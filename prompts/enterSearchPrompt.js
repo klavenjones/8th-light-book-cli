@@ -1,6 +1,5 @@
 var inquirer = require("inquirer");
 const { searchBooks } = require("../utils/searchBooks");
-const chalk = require("chalk");
 
 const searchQuestion = [
   {

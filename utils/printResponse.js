@@ -1,11 +1,11 @@
 const chalk = require("chalk");
 
+
 function printResponse(query, books) {
   try {
     if (!books) {
       throw new Error("Something went wrong, the book object is undefined");
     }
-
     console.log(
       chalk.inverse.cyan.bold(
         `\n Here are the results from the keyword: '${query}'`

@@ -2,8 +2,6 @@ const axios = require("axios");
 const chalk = require("chalk");
 
 
-
-
 async function searchBookByID(id) {
   try {
     if (!id || typeof id !== "string") {

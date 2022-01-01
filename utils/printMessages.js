@@ -32,9 +32,9 @@ function welcomeMessage() {
 
 function farewellMessage() {
   const greeting = chalk.white.bold("Goodbye, come back soon!");
-
   const message = boxen(greeting, boxenOptions);
   console.log(message);
 }
+
 
 module.exports = { welcomeMessage, farewellMessage };

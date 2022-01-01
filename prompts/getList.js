@@ -1,3 +1,4 @@
+const { getKeyPress } = require("../utils/getKeyPress");
 const { printBookList } = require("../utils/printBookList");
 
 function getList(menuCallback) {
@@ -6,6 +7,7 @@ function getList(menuCallback) {
       throw new Error("Invalid menu callback function passed for menu");
     }
     printBookList();
+    getKeyPress();
     menuCallback();
   } catch (error) {
     console.error(error);
