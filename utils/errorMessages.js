@@ -10,6 +10,8 @@ module.exports = {
     throw new Error(
       "Your search query is invalid, please make sure you type in a valid query"
     );
+
+    return;
   },
   badQueryError: function () {
     console.log(
@@ -21,7 +23,7 @@ module.exports = {
   noBooksError: function () {
     console.log(
       chalk.red.bold(
-        "\n Uh oh looks like something went wrong. We can't find what you are looking for. \n"
+        "\n Uh oh looks like something went wrong. We can't find any of the books you were looking for. \n"
       )
     );
     throw new Error("Something went wrong, the book object is undefined");

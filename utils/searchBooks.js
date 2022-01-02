@@ -9,11 +9,8 @@ async function searchBooks(query) {
       Errors.emptyQueryError();
     }
     const response = await axios.get(
-      `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5&printType=books&startIndex=0&projection=lite`
+      `https://www.googleapis.com/books/v1/volumes?q=${query}&maxResults=5`
     );
-
-    const books = response.data.items;
-    printResponse(query, books);
     return response;
   } catch (error) {
     if (error.message === "Request failed with status code 503") {
