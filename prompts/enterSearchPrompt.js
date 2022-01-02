@@ -1,4 +1,6 @@
 var inquirer = require("inquirer");
+const chalk = require("chalk");
+const Errors = require("../utils/errorMessages");
 const { searchBooks } = require("../utils/searchBooks");
 
 const searchQuestion = [
@@ -13,14 +15,13 @@ const searchQuestion = [
 function enterSearchPrompt(menuCallback) {
   try {
     if (!menuCallback) {
-      throw new Error("Invalid menu callback function passed for menu");
+      Errors.callbackFnError();
     }
     inquirer
       .prompt(searchQuestion)
       .then((answer) => searchBooks(answer.query))
       .then(() => menuCallback());
   } catch (error) {
-    console.error(error);
     return error;
   }
 }

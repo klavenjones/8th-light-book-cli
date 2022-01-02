@@ -18,12 +18,12 @@ describe("searchBookByID.js", () => {
   it("throws an error if book ID is not passed or undefined", async () => {
     const error = await searchBookByID();
     expect(error.name).toBe("Error");
-    expect(error.message).toBe("Incorrect input for the book ID");
+    expect(error.message).toBe("I'm Sorry you entered an invalid ID");
   });
 
   it("throws an error if book ID is not a string", async () => {
     const error = await searchBookByID(1);
     expect(error.name).toBe("Error");
-    expect(error.message).toBe("Incorrect input for the book ID");
+    expect(error.message).toBe("I'm Sorry you entered an invalid ID");
   });
 });

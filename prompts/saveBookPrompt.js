@@ -1,4 +1,5 @@
 var inquirer = require("inquirer");
+const Errors = require("../utils/errorMessages");
 const { addBookToList } = require("../utils/addBookToList");
 
 const saveQuestion = [
@@ -13,7 +14,7 @@ const saveQuestion = [
 function saveBookPrompt(menuCallback) {
   try {
     if (!menuCallback || undefined) {
-      throw new Error("Invalid menu callback function passed for menu");
+      Errors.callbackFnError();
     }
     inquirer
       .prompt(saveQuestion)

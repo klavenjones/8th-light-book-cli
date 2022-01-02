@@ -1,10 +1,9 @@
 const chalk = require("chalk");
-
-
+const Errors = require("../utils/errorMessages");
 function printResponse(query, books) {
   try {
     if (!books) {
-      throw new Error("Something went wrong, the book object is undefined");
+      Errors.noBooksError();
     }
     console.log(
       chalk.inverse.cyan.bold(
@@ -26,7 +25,6 @@ function printResponse(query, books) {
       );
     });
   } catch (error) {
-    console.error(error);
     return error;
   }
 }

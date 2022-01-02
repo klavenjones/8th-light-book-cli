@@ -1,11 +1,11 @@
 const axios = require("axios");
 const chalk = require("chalk");
-
+const Errors = require("../utils/errorMessages");
 
 async function searchBookByID(id) {
   try {
-    if (!id || typeof id !== "string") {
-      throw new Error("Incorrect input for the book ID");
+    if (!id || typeof id === "number") {
+      Errors.bookIdError();
     }
     const result = await axios.get(
       `https://www.googleapis.com/books/v1/volumes/${id}`
@@ -13,13 +13,8 @@ async function searchBookByID(id) {
     return result;
   } catch (error) {
     if (error.message === "Request failed with status code 503") {
-      throw new Error(
-        chalk.red.bold(
-          "Uh oh, looks like there is an issue. It's likely the book ID you provided is not in the database. Double check your id and try again"
-        )
-      );
+      Errors.serverError();
     }
-    console.error(error.message);
     return error;
   }
 }

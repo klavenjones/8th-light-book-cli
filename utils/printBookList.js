@@ -1,23 +1,13 @@
-const { default: chalk } = require("chalk");
+const chalk = require("chalk");
 const fs = require("fs");
-
-
-
+const Errors = require("../utils/errorMessages");
 
 async function printBookList() {
   await fs.readFile("book-list.txt", "utf8", (error, list) => {
     if (error) {
-      console.error(
-        chalk.inverse.red.bold(
-          `\n\nThere was an issue finding your list. ${error.message}\n`
-        )
-      );
+      Errors.bookListError();
     } else if (!list) {
-      console.error(
-        chalk.inverse.red.bold(
-          `\n\nUnfortunately, your list is empty ${error.message}\n`
-        )
-      );
+      Errors.emptyBookListError();
     } else {
       console.log(
         chalk.cyan.inverse.bold(`\n\nYour Reading List:\n`) +

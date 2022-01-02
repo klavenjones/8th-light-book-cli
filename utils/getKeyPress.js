@@ -2,7 +2,7 @@ const readline = require("readline");
 const { clearConsole } = require("../utils/clearConsole");
 
 readline.emitKeypressEvents(process.stdin);
-process.stdin.setRawMode(true);
+// process.stdin.setRawMode(true);
 
 function getKeyPress() {
   process.stdin.on("keypress", (str, key) => {
