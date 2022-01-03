@@ -10,8 +10,6 @@ module.exports = {
     throw new Error(
       "Your search query is invalid, please make sure you type in a valid query"
     );
-
-    return;
   },
   badQueryError: function () {
     console.log(
@@ -60,11 +58,11 @@ module.exports = {
   serverError: function () {
     console.log(
       chalk.red.bold(
-        "\n\nLooks like something went wrong on our end, the server is unavailable\n\n"
+        "\n\nLooks like the service is unavailable. Double check the ID you entered. \n\n"
       )
     );
     throw new Error(
-      "Looks like something went wrong on our end, the server is unavailable"
+      "Looks like the service is unavailable. Double check the ID you entered."
     );
   },
   callbackFnError: function () {

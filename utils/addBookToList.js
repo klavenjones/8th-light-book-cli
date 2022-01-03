@@ -1,4 +1,5 @@
 const fs = require("fs");
+const chalk = require("chalk");
 const Errors = require("../utils/errorMessages");
 const { searchBookByID } = require("./searchBookByID");
 
@@ -17,7 +18,9 @@ async function addBookToList(id) {
         Errors.saveBookError();
       }
     });
-
+    console.log(
+      chalk.green.inverse("\n You successfully saved the book to your list \n")
+    );
     return book;
   } catch (error) {
     if (error.message === "Request failed with status code 503") {
